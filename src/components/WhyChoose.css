@@ -1,0 +1,24 @@
+.why-choose-section {
+    background: var(--background);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.stat-item__value {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item__label {
+    font-weight: 600;
+    color: var(--gray);
+    font-size: 0.95rem;
+}

@@ -1,0 +1,134 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.site-header--scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.brand__logo {
+    display: block;
+    border-radius: 10px;
+}
+
+.brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.brand__name {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--dark);
+}
+
+.brand__tagline {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 0.02em;
+}
+
+.navbar-toggler {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: var(--dark);
+    padding: 0.25rem 0.5rem;
+}
+
+.site-header__collapse {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 0;
+}
+
+.site-header__nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.site-header__nav .nav-link {
+    color: var(--dark) !important;
+    font-weight: 600;
+    padding: 0.5rem 1rem !important;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-header__nav .nav-link:hover {
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary) !important;
+}
+
+.btn-cta {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-toggler {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .site-header__collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: #fff;
+        padding: 1rem 1.5rem 1.5rem;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+        border-radius: 0 0 18px 18px;
+    }
+
+    .site-header__nav {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .btn-cta {
+        width: 100%;
+        text-align: center;
+    }
+}

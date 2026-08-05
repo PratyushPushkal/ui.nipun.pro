@@ -1,0 +1,303 @@
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Button } from "reactstrap";
+import logo from "../assets/nipun.png";
+import "./ReputationLanding.css";
+
+const HERO_KPI_ITEMS = [
+    { icon: "bi-star-fill", value: "4.9", label: "Google Rating" },
+    { icon: "bi-chat-left-text", value: "2,847", label: "Total Reviews" },
+    { icon: "bi-robot", value: "1,926", label: "AI Replies" },
+    { icon: "bi-emoji-smile", value: "97%", label: "Positive Sentiment" },
+];
+
+const FEATURES = [
+    {
+        icon: "bi-robot",
+        title: "AI Review Generator",
+        desc: "Generate personalized, on-brand responses to every review instantly.",
+    },
+    {
+        icon: "bi-star",
+        title: "Review Campaigns",
+        desc: "Increase Google reviews automatically with smart follow-up journeys.",
+    },
+    {
+        icon: "bi-bar-chart",
+        title: "Analytics",
+        desc: "Track ratings, response times, and customer sentiment in real time.",
+    },
+];
+
+const STATS = [
+    { icon: "bi-star", value: "4.9", label: "Average Rating" },
+    { icon: "bi-chat-left-text", value: "2,847", label: "Reviews" },
+    { icon: "bi-robot", value: "1,926", label: "AI Replies" },
+    { icon: "bi-emoji-smile", value: "97%", label: "Positive Sentiment" },
+    { icon: "bi-trophy", value: "95", label: "Reputation Score" },
+];
+
+const INTEGRATIONS = [
+    { icon: "bi-google", name: "Google" },
+    { icon: "bi-facebook", name: "Facebook" },
+    { icon: "bi-instagram", name: "Instagram" },
+    { icon: "bi-whatsapp", name: "WhatsApp" },
+    { icon: "bi-envelope", name: "Email" },
+    { icon: "bi-chat-dots", name: "SMS" },
+];
+
+const TESTIMONIALS = [
+    {
+        quote: "Our Google rating improved from 4.1 to 4.8 in 60 days.",
+        author: "Restaurant Owner",
+    },
+    {
+        quote: "Saved our team more than 10 hours every week.",
+        author: "Clinic Manager",
+    },
+];
+
+export default function ReputationLanding() {
+    const [demoKey, setDemoKey] = useState(0);
+
+    useEffect(() => {
+        // ensure the page starts at top when this route is opened
+        if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0, left: 0 });
+        }
+    }, []);
+
+    return (
+        <div className="rep-landing-page">
+            <div className="rep-bg-shapes" aria-hidden="true">
+                <span className="rep-shape rep-shape-1" />
+                <span className="rep-shape rep-shape-2" />
+                <span className="rep-shape rep-shape-3" />
+            </div>
+
+            <Container fluid className="rep-hero-container">
+                <Row className="g-5 align-items-center rep-hero-row">
+                    <Col xs="12" lg="6">
+                        <div className="rep-hero-left">
+                            <a href="/" className="rep-brand-row rep-brand-link" onClick={(e) => { /* allow SPA navigation */ }}>
+                                <img src={logo} alt="Nipun Reputation AI logo" className="rep-brand-logo" width={42} height={42} />
+                                <span className="rep-brand-name">Nipun Reputation AI</span>
+                            </a>
+
+                            <span className="rep-hero-badge">
+                                <span className="rep-badge-dot" aria-hidden="true" />
+                                AI Powered Reputation Platform
+                            </span>
+
+                            <h1 className="rep-headline">
+                                AI Reputation Management that helps businesses collect more reviews, respond intelligently, and build customer trust.
+                            </h1>
+
+                            <p className="rep-subtext">
+                                Nipun Reputation AI unifies review collection, AI-generated responses, and real-time sentiment analytics
+                                into a single command center so every customer conversation strengthens your brand.
+                            </p>
+
+                            <div className="rep-cta-row">
+                                <Button
+                                    color="primary"
+                                    size="lg"
+                                    className="rep-cta-primary"
+                                    href="https://reputation.nipun.pro"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Let&apos;s get you signed in
+                                </Button>
+                                <a href="#rep-features" className="rep-cta-secondary">Learn More</a>
+                            </div>
+
+                            <ul className="rep-feature-badges" role="list">
+                                <li><i className="bi bi-stars" aria-hidden="true" /> Increase Reviews</li>
+                                <li><i className="bi bi-robot" aria-hidden="true" /> AI Responses</li>
+                                <li><i className="bi bi-graph-up-arrow" aria-hidden="true" /> Reputation Analytics</li>
+                                <li><i className="bi bi-shield-check" aria-hidden="true" /> Customer Trust</li>
+                            </ul>
+                        </div>
+                    </Col>
+
+                    <Col xs="12" lg="6">
+                        <div
+                            className="rep-dashboard-preview"
+                            role="img"
+                            aria-label="Preview of a reputation dashboard with score, rating, reviews, AI replies, and weekly trend"
+                        >
+                            <span className="rep-dashboard-glow" aria-hidden="true" />
+
+                            <div className="rep-card rep-header-card">
+                                <span className="rep-live-dot" aria-hidden="true" />
+                                <span>Live Reputation Dashboard</span>
+                            </div>
+
+                            <div className="rep-grid" id="rep-metrics">
+                                <div className="rep-card rep-score-card">
+                                    <div className="rep-circular-progress" aria-hidden="true">
+                                        <span className="rep-circular-value">95</span>
+                                    </div>
+                                    <div>
+                                        <div className="rep-card-label">Reputation Score</div>
+                                        <div className="rep-card-trend">+6 this month</div>
+                                    </div>
+                                </div>
+
+                                {HERO_KPI_ITEMS.map((item) => (
+                                    <div className="rep-card rep-mini-stat" key={item.label}>
+                                        <span className="rep-mini-icon" aria-hidden="true"><i className={`bi ${item.icon}`} /></span>
+                                        <div>
+                                            <div className="rep-mini-value">{item.value}</div>
+                                            <div className="rep-mini-label">{item.label}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="rep-card rep-chart-card">
+                                <div className="d-flex justify-content-between align-items-center mb-2">
+                                    <span className="rep-card-label">Weekly Trend</span>
+                                    <span className="rep-chart-badge">+18%</span>
+                                </div>
+                                <svg width="100%" height="56" viewBox="0 0 160 40" preserveAspectRatio="none" aria-hidden="true">
+                                    <polyline
+                                        fill="none"
+                                        stroke="#2563eb"
+                                        strokeWidth="2.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        points="0,34 20,30 40,27 60,30 80,19 100,22 120,11 140,15 160,6"
+                                    />
+                                </svg>
+                            </div>
+
+                            <div className="rep-card rep-reply-card">
+                                <div className="rep-card-label mb-2">Recent AI Generated Reply</div>
+                                <p className="rep-reply-text">
+                                    "Thank you so much for the kind words. We are thrilled you enjoyed your visit and look forward to welcoming you back soon."
+                                </p>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+
+            <section id="rep-features" className="rep-landing-section">
+                <div className="rep-section-inner">
+                    <h2 className="rep-section-heading">Everything you need to manage your reputation</h2>
+                    <p className="rep-section-subtext">
+                        Purpose-built AI tools that help you collect, respond, and grow customer trust.
+                    </p>
+
+                    <div className="rep-features-grid">
+                        {FEATURES.map((feature) => (
+                            <div className="rep-feature-card" key={feature.title}>
+                                <div className="rep-feature-icon" aria-hidden="true"><i className={`bi ${feature.icon}`} /></div>
+                                <h3 className="rep-feature-title">{feature.title}</h3>
+                                <p className="rep-feature-desc">{feature.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="rep-landing-section rep-landing-section-alt" aria-label="Platform statistics">
+                <div className="rep-section-inner">
+                    <div className="rep-stats-grid">
+                        {STATS.map((stat) => (
+                            <div className="rep-stat-card" key={stat.label}>
+                                <div className="rep-stat-icon" aria-hidden="true"><i className={`bi ${stat.icon}`} /></div>
+                                <div className="rep-stat-value">{stat.value}</div>
+                                <div className="rep-stat-label">{stat.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="rep-landing-section" aria-label="AI response demo">
+                <div className="rep-section-inner">
+                    <h2 className="rep-section-heading">See AI replies in action</h2>
+                    <p className="rep-section-subtext">
+                        Every review gets a thoughtful, on-brand response generated in seconds.
+                    </p>
+
+                    <div className="rep-ai-demo-card">
+                        <div className="rep-ai-bubble rep-ai-bubble-customer">
+                            <div className="rep-ai-bubble-label">Customer Review</div>
+                            <p className="rep-ai-bubble-text">
+                                "The service was great but waiting time was longer than expected."
+                            </p>
+                        </div>
+
+                        <div className="rep-ai-arrow" aria-hidden="true">↓</div>
+
+                        <div className="rep-ai-bubble rep-ai-bubble-generated" key={demoKey}>
+                            <div className="rep-ai-bubble-label">AI Response</div>
+                            <p className="rep-ai-bubble-text">
+                                "Thank you for your valuable feedback. We appreciate your patience and continuously work to improve our service."
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            className="btn rep-ai-generate-btn"
+                            onClick={() => setDemoKey((key) => key + 1)}
+                        >
+                            Generate with AI
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section className="rep-landing-section rep-landing-section-alt" aria-label="Supported integrations">
+                <div className="rep-section-inner">
+                    <h2 className="rep-section-heading">Connects with the platforms you already use</h2>
+                    <div className="rep-integrations-grid">
+                        {INTEGRATIONS.map((integration) => (
+                            <div className="rep-integration-card" key={integration.name}>
+                                <div className="rep-integration-icon" aria-hidden="true"><i className={`bi ${integration.icon}`} /></div>
+                                <div className="rep-integration-name">{integration.name}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="rep-landing-section" aria-label="Customer testimonials">
+                <div className="rep-section-inner">
+                    <h2 className="rep-section-heading">Trusted by growing businesses</h2>
+                    <div className="rep-testimonials-grid">
+                        {TESTIMONIALS.map((testimonial) => (
+                            <div className="rep-testimonial-card" key={testimonial.author}>
+                                <div className="rep-testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <p className="rep-testimonial-quote">"{testimonial.quote}"</p>
+                                <div className="rep-testimonial-author">{testimonial.author}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="rep-bottom-cta-section" aria-label="Get started">
+                <div className="rep-section-inner text-center">
+                    <h2 className="rep-bottom-cta-heading">Ready to build your online reputation?</h2>
+                    <Button
+                        color="light"
+                        size="lg"
+                        className="rep-bottom-cta-button"
+                        href="https://reputation.nipun.pro"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Let&apos;s get you signed in
+                    </Button>
+                    <p className="rep-bottom-cta-subtext">
+                        Secure Authentication powered by Microsoft Entra External ID
+                    </p>
+                </div>
+            </section>
+        </div>
+    );
+}
