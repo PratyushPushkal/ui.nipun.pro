@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import ChatBot from "../components/ChatBot";
 
 export default function Home() {
+    const ENABLE_CHATBOT = import.meta.env.VITE_ENABLE_CHATBOT === "true";
 
     return (
         <>
@@ -24,7 +25,7 @@ export default function Home() {
                 <Contact />
             </main>
             <Footer />
-            <ChatBot />
+            {ENABLE_CHATBOT && <ChatBot />}
         </>
     );
 }
