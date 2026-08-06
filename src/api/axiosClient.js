@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Global axios instance shared by all API service modules.
 const axiosClient = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || "/api",
+    baseURL: import.meta.env.VITE_API_BASE_URL,
     headers: { "Content-Type": "application/json" },
     timeout: 15000,
 });
