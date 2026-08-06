@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback, Spinner } from "reactstrap";
 import { submitContact } from "../api/contactApi";
 import "./Contact.css";
@@ -29,6 +30,31 @@ export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
     const [submitError, setSubmitError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (!submitted) return;
+        const timer = setTimeout(() => setSubmitted(false), 5000);
+        return () => clearTimeout(timer);
+    }, [submitted]);
+
+    // If navigation includes a message query param or hash, prefill and scroll.
+    useEffect(() => {
+        try {
+            const params = new URLSearchParams(location.search);
+            const message = params.get("message");
+            if (message) {
+                setValues((prev) => ({ ...prev, message }));
+            }
+        } catch (e) {
+            // ignore malformed params
+        }
+
+        if (location.hash === "#contact") {
+            const el = document.getElementById("contact");
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [location]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -46,7 +72,10 @@ export default function Contact() {
         setIsSubmitting(true);
         try {
             const response = await submitContact({ ...values, status: "New" });
-            if (response?.success) {
+            // Treat any successful HTTP response as success. Some backends return
+            // `{ success: true }`, others return the created resource or message.
+            const isSuccess = response && (response.success === undefined || response.success === true);
+            if (isSuccess) {
                 setSubmitted(true);
                 setValues(INITIAL_STATE);
             } else {

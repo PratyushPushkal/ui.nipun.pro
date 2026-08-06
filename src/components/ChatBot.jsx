@@ -5,7 +5,7 @@ import "./ChatBot.css";
 const WELCOME_MESSAGE = {
     id: "welcome",
     role: "assistant",
-    text: "Hi! I'm Nipun AI Assistant. Ask me about our products, services, or how we can help your business.",
+    text: "Hi! I'm Nipun AI Agent. Ask me about our products, services, or how we can help your business.",
 };
 
 const SUGGESTIONS = [
@@ -86,14 +86,14 @@ export default function ChatBot() {
     return (
         <div className="chatbot-widget">
             {isOpen && (
-                <div className="chatbot-panel" role="dialog" aria-label="Nipun AI Assistant chat">
+                <div className="chatbot-panel" role="dialog" aria-label="Nipun Digital Employee chat">
                     <div className="chatbot-panel__header">
                         <div className="chatbot-panel__identity">
                             <span className="chatbot-avatar">
                                 <i className="bi bi-stars" aria-hidden="true" />
                             </span>
                             <div>
-                                <p className="chatbot-panel__name">Nipun AI Assistant</p>
+                                <p className="chatbot-panel__name">Nipun Digital Employee</p>
                                 <p className="chatbot-panel__status">
                                     <span className="status-dot" /> Online
                                 </p>

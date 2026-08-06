@@ -80,7 +80,20 @@ export default function Products() {
                                 >
                                     Learn More
                                 </Button>
-                                <Button outline color="primary" className="btn-outline-soft">
+                                {/** Link to home with hash + prefill message so Contact picks it up */}
+                                <Button
+                                    tag={Link}
+                                    to={{
+                                        pathname: "/",
+                                        hash: "#contact",
+                                        search: `?message=${encodeURIComponent(
+                                            "I would like a demo of your product. Please get in touch."
+                                        )}`,
+                                    }}
+                                    outline
+                                    color="primary"
+                                    className="btn-outline-soft"
+                                >
                                     Request Demo
                                 </Button>
                             </div>
