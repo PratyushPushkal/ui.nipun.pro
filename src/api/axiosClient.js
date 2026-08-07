@@ -25,12 +25,12 @@ const isSafeApiBaseUrl = (value) => {
     }
 };
 
-const API_BASE = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL || "");
+const API_BASE = normalizeApiBaseUrl(import.meta.env.VITE_API_BASE_URL || "https://nipun-pro-dsfrdeejhzgggjbe.centralindia-01.azurewebsites.net/api");
 const TIMEOUT_MS = Number.parseInt(import.meta.env.VITE_API_TIMEOUT_MS, 10);
 const RETRY_COUNT = Number.parseInt(import.meta.env.VITE_API_RETRY_COUNT, 10);
 const RETRY_DELAY_MS = Number.parseInt(import.meta.env.VITE_API_RETRY_DELAY_MS, 10);
 
-const resolvedBaseUrl = API_BASE || "/api";
+const resolvedBaseUrl = API_BASE;
 
 if (!isSafeApiBaseUrl(resolvedBaseUrl)) {
     // Fail fast if the configured API base URL looks unsafe.
