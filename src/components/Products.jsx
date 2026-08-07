@@ -1,6 +1,7 @@
 import { Container, Row, Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import useScrollReveal from "../hooks/useScrollReveal";
+import dashboardShot from "../assets/1.JPG";
 import "./Products.css";
 
 const FEATURES = [
@@ -27,33 +28,11 @@ export default function Products() {
                 <div ref={ref} className={`product-card reveal ${isVisible ? "is-visible" : ""}`}>
                     <Row className="g-0 align-items-stretch">
                         <Col lg="6" className="product-card__visual">
-                            <div className="dashboard-mock" aria-hidden="true">
-                                <div className="dashboard-mock__sidebar">
-                                    <span className="dashboard-mock__brand">Nipun</span>
-                                    <ul>
-                                        <li className="active"><i className="bi bi-grid-1x2-fill" /> Overview</li>
-                                        <li><i className="bi bi-star-fill" /> Reviews</li>
-                                        <li><i className="bi bi-people-fill" /> Customers</li>
-                                        <li><i className="bi bi-bar-chart-fill" /> Analytics</li>
-                                        <li><i className="bi bi-gear-fill" /> Settings</li>
-                                    </ul>
-                                </div>
-                                <div className="dashboard-mock__main">
-                                    <div className="dashboard-mock__stats">
-                                        <div className="stat"><span>Total Reviews</span><strong>1,248</strong></div>
-                                        <div className="stat"><span>Avg. Rating</span><strong>4.6</strong></div>
-                                        <div className="stat"><span>Happy Customers</span><strong>92%</strong></div>
-                                        <div className="stat"><span>Response Rate</span><strong>95%</strong></div>
-                                    </div>
-                                    <div className="dashboard-mock__chart">
-                                        <div className="chart-line" />
-                                    </div>
-                                    <div className="dashboard-mock__ring">
-                                        <div className="ring" />
-                                        <span>4.6</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <img
+                                src={dashboardShot}
+                                alt="Reputation AI dashboard showing review stats and needs attention alerts"
+                                className="dashboard-screenshot"
+                            />
                         </Col>
 
                         <Col lg="6" className="product-card__content">

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import logo from "../assets/nipun.png";
+import dashboardShot1 from "../assets/1.JPG";
+import dashboardShot2 from "../assets/2.JPG";
 import "./ReputationLanding.css";
 
-const HERO_KPI_ITEMS = [
-    { icon: "bi-star-fill", value: "4.9", label: "Google Rating" },
-    { icon: "bi-chat-left-text", value: "2,847", label: "Total Reviews" },
-    { icon: "bi-robot", value: "1,926", label: "AI Replies" },
-    { icon: "bi-emoji-smile", value: "97%", label: "Positive Sentiment" },
+const DASHBOARD_SCREENSHOTS = [
+    { src: dashboardShot1, alt: "Reputation AI dashboard overview with review stats and needs attention alerts" },
+    { src: dashboardShot2, alt: "Reputation AI review trend chart and AI insights panel" },
 ];
 
 const FEATURES = [
@@ -58,12 +58,20 @@ const TESTIMONIALS = [
 
 export default function ReputationLanding() {
     const [demoKey, setDemoKey] = useState(0);
+    const [activeShot, setActiveShot] = useState(0);
 
     useEffect(() => {
         // ensure the page starts at top when this route is opened
         if (typeof window !== "undefined") {
             window.scrollTo({ top: 0, left: 0 });
         }
+    }, []);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveShot((index) => (index + 1) % DASHBOARD_SCREENSHOTS.length);
+        }, 4000);
+        return () => clearInterval(timer);
     }, []);
 
     return (
@@ -121,11 +129,7 @@ export default function ReputationLanding() {
                     </Col>
 
                     <Col xs="12" lg="6">
-                        <div
-                            className="rep-dashboard-preview"
-                            role="img"
-                            aria-label="Preview of a reputation dashboard with score, rating, reviews, AI replies, and weekly trend"
-                        >
+                        <div className="rep-dashboard-preview">
                             <span className="rep-dashboard-glow" aria-hidden="true" />
 
                             <div className="rep-card rep-header-card">
@@ -133,50 +137,29 @@ export default function ReputationLanding() {
                                 <span>Live Reputation Dashboard</span>
                             </div>
 
-                            <div className="rep-grid" id="rep-metrics">
-                                <div className="rep-card rep-score-card">
-                                    <div className="rep-circular-progress" aria-hidden="true">
-                                        <span className="rep-circular-value">95</span>
-                                    </div>
-                                    <div>
-                                        <div className="rep-card-label">Reputation Score</div>
-                                        <div className="rep-card-trend">+6 this month</div>
-                                    </div>
-                                </div>
-
-                                {HERO_KPI_ITEMS.map((item) => (
-                                    <div className="rep-card rep-mini-stat" key={item.label}>
-                                        <span className="rep-mini-icon" aria-hidden="true"><i className={`bi ${item.icon}`} /></span>
-                                        <div>
-                                            <div className="rep-mini-value">{item.value}</div>
-                                            <div className="rep-mini-label">{item.label}</div>
-                                        </div>
-                                    </div>
+                            <div className="rep-screenshot-frame">
+                                {DASHBOARD_SCREENSHOTS.map((shot, index) => (
+                                    <img
+                                        key={shot.src}
+                                        src={shot.src}
+                                        alt={shot.alt}
+                                        className={`rep-screenshot-img ${index === activeShot ? "is-active" : ""}`}
+                                    />
                                 ))}
                             </div>
 
-                            <div className="rep-card rep-chart-card">
-                                <div className="d-flex justify-content-between align-items-center mb-2">
-                                    <span className="rep-card-label">Weekly Trend</span>
-                                    <span className="rep-chart-badge">+18%</span>
-                                </div>
-                                <svg width="100%" height="56" viewBox="0 0 160 40" preserveAspectRatio="none" aria-hidden="true">
-                                    <polyline
-                                        fill="none"
-                                        stroke="#2563eb"
-                                        strokeWidth="2.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        points="0,34 20,30 40,27 60,30 80,19 100,22 120,11 140,15 160,6"
+                            <div className="rep-screenshot-dots" role="tablist" aria-label="Dashboard screenshots">
+                                {DASHBOARD_SCREENSHOTS.map((shot, index) => (
+                                    <button
+                                        key={shot.src}
+                                        type="button"
+                                        role="tab"
+                                        aria-selected={index === activeShot}
+                                        aria-label={`Show screenshot ${index + 1}`}
+                                        className={`rep-screenshot-dot ${index === activeShot ? "is-active" : ""}`}
+                                        onClick={() => setActiveShot(index)}
                                     />
-                                </svg>
-                            </div>
-
-                            <div className="rep-card rep-reply-card">
-                                <div className="rep-card-label mb-2">Recent AI Generated Reply</div>
-                                <p className="rep-reply-text">
-                                    "Thank you so much for the kind words. We are thrilled you enjoyed your visit and look forward to welcoming you back soon."
-                                </p>
+                                ))}
                             </div>
                         </div>
                     </Col>
