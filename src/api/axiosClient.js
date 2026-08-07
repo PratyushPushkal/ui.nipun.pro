@@ -35,7 +35,19 @@ const resolvedBaseUrl = API_BASE || "/api";
 if (!isSafeApiBaseUrl(resolvedBaseUrl)) {
     // Fail fast if the configured API base URL looks unsafe.
     // Allow empty (meaning relative `/api`) and localhost HTTP for development.
-    throw new Error("VITE_API_BASE_URL must be a valid HTTPS endpoint or a safe local URL.");
+    try {
+        // Log the resolved and raw values so we can diagnose build vs runtime issues.
+        // Keep this lightweight and safe to remove after diagnosing.
+        // eslint-disable-next-line no-console
+        console.error("Unsafe VITE_API_BASE_URL detected:", {
+            resolvedBaseUrl,
+            rawEnv: import.meta.env?.VITE_API_BASE_URL,
+        });
+    } catch {
+        // ignore logging errors
+    }
+
+    throw new Error(`VITE_API_BASE_URL must be a valid HTTPS endpoint or a safe local URL. Saw: ${resolvedBaseUrl}`);
 }
 
 const axiosClient = axios.create({
