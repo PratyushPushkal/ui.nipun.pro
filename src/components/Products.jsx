@@ -28,11 +28,18 @@ export default function Products() {
                 <div ref={ref} className={`product-card reveal ${isVisible ? "is-visible" : ""}`}>
                     <Row className="g-0 align-items-stretch">
                         <Col lg="6" className="product-card__visual">
-                            <img
-                                src={dashboardShot}
-                                alt="Reputation AI dashboard showing review stats and needs attention alerts"
-                                className="dashboard-screenshot"
-                            />
+                            <div className="dashboard-screenshot-frame">
+                                <div className="dashboard-screenshot-frame__bar" aria-hidden="true">
+                                    <span />
+                                    <span />
+                                    <span />
+                                </div>
+                                <img
+                                    src={dashboardShot}
+                                    alt="Reputation AI dashboard showing review stats and needs attention alerts"
+                                    className="dashboard-screenshot"
+                                />
+                            </div>
                         </Col>
 
                         <Col lg="6" className="product-card__content">

@@ -76,6 +76,18 @@ export default function ReputationLanding() {
 
     return (
         <div className="rep-landing-page">
+            <header className="rep-page-header">
+                <Container className="rep-page-header__inner">
+                    <a href="/" className="rep-page-header__brand">
+                        <img src={logo} alt="Nipun logo" className="rep-page-header__logo" width={40} height={40} loading="eager" />
+                        <span className="rep-page-header__text">
+                            <span className="rep-page-header__name">Nipun</span>
+                            <span className="rep-page-header__tagline">AI Based Solutions</span>
+                        </span>
+                    </a>
+                </Container>
+            </header>
+
             <div className="rep-bg-shapes" aria-hidden="true">
                 <span className="rep-shape rep-shape-1" />
                 <span className="rep-shape rep-shape-2" />
@@ -86,11 +98,6 @@ export default function ReputationLanding() {
                 <Row className="g-5 align-items-center rep-hero-row">
                     <Col xs="12" lg="6">
                         <div className="rep-hero-left">
-                            <a href="/" className="rep-brand-row rep-brand-link" onClick={(e) => { /* allow SPA navigation */ }}>
-                                <img src={logo} alt="Nipun Reputation AI logo" className="rep-brand-logo" width={42} height={42} />
-                                <span className="rep-brand-name">Nipun Reputation AI</span>
-                            </a>
-
                             <span className="rep-hero-badge">
                                 <span className="rep-badge-dot" aria-hidden="true" />
                                 AI Powered Reputation Platform
@@ -106,16 +113,6 @@ export default function ReputationLanding() {
                             </p>
 
                             <div className="rep-cta-row">
-                                <Button
-                                    color="primary"
-                                    size="lg"
-                                    className="rep-cta-primary"
-                                    href="https://reputation.nipun.pro"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Let&apos;s get you signed in
-                                </Button>
                                 <a href="#rep-features" className="rep-cta-secondary">Learn More</a>
                             </div>
 
@@ -129,6 +126,17 @@ export default function ReputationLanding() {
                     </Col>
 
                     <Col xs="12" lg="6">
+                        <Button
+                            color="primary"
+                            size="lg"
+                            className="rep-cta-primary rep-cta-primary--preview"
+                            href="https://reputation.nipun.pro"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Let&apos;s get you signed in
+                        </Button>
+
                         <div className="rep-dashboard-preview">
                             <span className="rep-dashboard-glow" aria-hidden="true" />
 
