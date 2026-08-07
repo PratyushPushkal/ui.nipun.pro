@@ -69,6 +69,19 @@
     flex-grow: 0;
 }
 
+/* Desktop-only nav container: visible on large screens, hidden on small screens */
+.site-header__desktop {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.site-header__nav--desktop {
+    /* Override Bootstrap's .navbar-nav column default so links sit in a row */
+    flex-direction: row;
+    align-items: center;
+}
+
 .site-header__nav {
     display: flex;
     gap: 0.5rem;
@@ -107,6 +120,11 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+    }
+
+    /* Hide desktop nav on small screens */
+    .site-header__desktop {
+        display: none;
     }
 
     .site-header__collapse {

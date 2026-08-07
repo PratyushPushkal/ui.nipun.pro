@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Nav, NavItem, NavLink, Button, Collapse } from "reactstrap";
+import { Container, Nav, NavItem, NavLink, Collapse } from "reactstrap";
 import logo from "../assets/nipun.png";
 import "./Navbar.css";
 
@@ -33,6 +33,19 @@ export default function Navbar() {
                         </span>
                     </a>
 
+                    {/* Desktop nav (visible on larger screens) */}
+                    <div className="site-header__desktop">
+                        <Nav className="site-header__nav site-header__nav--desktop">
+                            {NAV_LINKS.map((link) => (
+                                <NavItem key={link.href}>
+                                    <NavLink href={link.href} onClick={handleNavClick}>
+                                        {link.label}
+                                    </NavLink>
+                                </NavItem>
+                            ))}
+                        </Nav>
+                    </div>
+
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -53,9 +66,6 @@ export default function Navbar() {
                                 </NavItem>
                             ))}
                         </Nav>
-                        <Button color="primary" className="btn-cta" href="#contact" onClick={handleNavClick}>
-                            Get Started
-                        </Button>
                     </Collapse>
                 </nav>
             </Container>
