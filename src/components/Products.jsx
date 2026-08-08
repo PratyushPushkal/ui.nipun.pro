@@ -5,12 +5,11 @@ import dashboardShot from "../assets/1.JPG";
 import "./Products.css";
 
 const FEATURES = [
-    "QR Code Feedback",
-    "AI Review Generator",
+    "Smart Feedback Collection",
+    "AI-Powered Review Generation",
+    "Customer Insights",
+    "Reputation Analytics",
     "Google Review Integration",
-    "Customer Analytics",
-    "Multi Tenant SaaS",
-    "Dashboard & Reports",
 ];
 
 export default function Products() {
@@ -22,7 +21,7 @@ export default function Products() {
                 <div className="section-heading text-center">
                     <span className="eyebrow">Products</span>
                     <h2 className="title">Our Products</h2>
-                    <p className="subtitle mx-auto">Intelligent software built for modern businesses.</p>
+                    <p className="subtitle mx-auto">Intelligent products designed to solve real business problems.</p>
                 </div>
 
                 <div ref={ref} className={`product-card reveal ${isVisible ? "is-visible" : ""}`}>
@@ -44,11 +43,10 @@ export default function Products() {
 
                         <Col lg="6" className="product-card__content">
                             <span className="badge-featured"><i className="bi bi-star-fill" /> Featured Product</span>
-                            <h3>Reputation Management</h3>
+                            <h3>Nipun Reputation Management</h3>
                             <p>
-                                AI-powered customer feedback and online reputation platform that helps
-                                businesses collect reviews, generate AI-assisted responses, and improve
-                                customer satisfaction.
+                                Turn customer feedback into better reviews, stronger relationships, and a
+                                better online reputation.
                             </p>
                             <ul className="feature-list">
                                 {FEATURES.map((feature) => (
@@ -64,7 +62,7 @@ export default function Products() {
                                     color="primary"
                                     className="btn-primary-glow"
                                 >
-                                    Learn More
+                                    Explore Reputation Management
                                 </Button>
                                 {/** Link to home with hash + prefill message so Contact picks it up */}
                                 <Button

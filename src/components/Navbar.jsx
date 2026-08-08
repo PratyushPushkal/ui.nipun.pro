@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { Container, Nav, NavItem, NavLink, Collapse } from "reactstrap";
+import { Container, Nav, NavItem, NavLink, Collapse, Button } from "reactstrap";
 import logo from "../assets/nipun.png";
 import "./Navbar.css";
 
 const NAV_LINKS = [
     { label: "Products", href: "#products" },
     { label: "Services", href: "#services" },
+    { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid = false }) {
+export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid = false, ctaHref = "#contact", ctaLabel = "Get Started" }) {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +48,9 @@ export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid
                                         </NavItem>
                                     ))}
                                 </Nav>
+                                <Button color="primary" className="btn-cta-nav" href={ctaHref} onClick={handleNavClick}>
+                                    {ctaLabel}
+                                </Button>
                             </div>
 
                             <button
@@ -69,6 +73,9 @@ export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid
                                         </NavItem>
                                     ))}
                                 </Nav>
+                                <Button color="primary" className="btn-cta-nav" href={ctaHref} onClick={handleNavClick}>
+                                    {ctaLabel}
+                                </Button>
                             </Collapse>
                         </>
                     )}

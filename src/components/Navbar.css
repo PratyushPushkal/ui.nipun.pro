@@ -100,6 +100,13 @@
     color: var(--primary) !important;
 }
 
+.btn-cta-nav {
+    border-radius: 999px;
+    padding: 0.5rem 1.35rem !important;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 .btn-cta {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     border: none;

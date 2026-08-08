@@ -69,6 +69,14 @@
     margin-bottom: 2rem;
 }
 
+.hero__trustline {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--gray);
+    margin: 1.25rem 0 0;
+}
+
 .hero__actions {
     display: flex;
     flex-wrap: wrap;

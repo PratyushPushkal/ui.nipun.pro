@@ -1,23 +1,28 @@
 import { Container, Row, Col } from "reactstrap";
-import useCountUp from "../hooks/useCountUp";
+import useScrollReveal from "../hooks/useScrollReveal";
 import "./WhyChoose.css";
 
-const STATS = [
-    { end: 20, suffix: "+", label: "Projects", numeric: true },
-    { end: 100, suffix: "%", label: "Client Satisfaction", numeric: true },
-    { display: "Cloud First", label: "Architecture", numeric: false },
-    { display: "AI Powered", label: "Solutions", numeric: false },
+const REASONS = [
+    { icon: "bi-stars", title: "AI First", description: "We use AI where it creates measurable business value." },
+    { icon: "bi-briefcase", title: "Business Focused", description: "Solutions are designed around real-world business problems." },
+    { icon: "bi-graph-up-arrow", title: "Scalable Technology", description: "Modern cloud architecture designed to grow with your business." },
+    { icon: "bi-emoji-smile", title: "Simple Experience", description: "Powerful technology presented through simple and intuitive experiences." },
 ];
 
-function StatItem({ stat }) {
-    const { ref, value } = useCountUp(stat.numeric ? stat.end : 0);
+function ReasonCard({ reason, index }) {
+    const { ref, isVisible } = useScrollReveal();
     return (
         <Col xs="6" md="3">
-            <div ref={ref} className="stat-item">
-                <div className="stat-item__value">
-                    {stat.numeric ? `${value}${stat.suffix}` : stat.display}
+            <div
+                ref={ref}
+                className={`stat-item reveal ${isVisible ? "is-visible" : ""}`}
+                style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+                <div className="stat-item__icon">
+                    <i className={`bi ${reason.icon}`} aria-hidden="true" />
                 </div>
-                <div className="stat-item__label">{stat.label}</div>
+                <div className="stat-item__title">{reason.title}</div>
+                <p className="stat-item__desc">{reason.description}</p>
             </div>
         </Col>
     );
@@ -25,15 +30,15 @@ function StatItem({ stat }) {
 
 export default function WhyChoose() {
     return (
-        <section className="why-choose-section" aria-label="Why choose Nipun">
+        <section className="why-choose-section" aria-label="Why businesses choose Nipun">
             <Container>
                 <div className="section-heading text-center">
                     <span className="eyebrow">Why Nipun</span>
-                    <h2 className="title">Why Choose Nipun</h2>
+                    <h2 className="title">Why Businesses Choose Nipun</h2>
                 </div>
                 <Row className="g-4">
-                    {STATS.map((stat) => (
-                        <StatItem stat={stat} key={stat.label} />
+                    {REASONS.map((reason, index) => (
+                        <ReasonCard reason={reason} index={index} key={reason.title} />
                     ))}
                 </Row>
             </Container>

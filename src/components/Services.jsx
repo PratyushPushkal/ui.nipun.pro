@@ -3,18 +3,11 @@ import useScrollReveal from "../hooks/useScrollReveal";
 import "./Services.css";
 
 const SERVICES = [
-    { icon: "bi-cpu-fill", title: "AI Solutions", description: "Custom AI models and intelligent automation tailored to your business needs." },
-    { icon: "bi-code-slash", title: "Custom Software Development", description: "Bespoke software engineered to solve your unique business challenges." },
-    { icon: "bi-window-stack", title: "Web Application Development", description: "Fast, secure and scalable web applications built with modern frameworks." },
-    { icon: "bi-diagram-3-fill", title: "Enterprise SaaS Development", description: "Multi-tenant SaaS platforms designed for growth and reliability." },
-    { icon: "bi-cloud-fill", title: "Cloud Solutions (Microsoft Azure)", description: "Cloud-native architecture built and optimized on Microsoft Azure." },
-    { icon: "bi-stars", title: "Azure OpenAI Integration", description: "Seamless integration of Azure OpenAI to power intelligent experiences." },
-    { icon: "bi-plug-fill", title: "API Development", description: "Robust, secure and well-documented APIs for seamless integrations." },
-    { icon: "bi-gear-wide-connected", title: "Business Process Automation", description: "Automate repetitive workflows to boost efficiency and reduce costs." },
-    { icon: "bi-person-lines-fill", title: "CRM Development", description: "Custom CRM systems to manage relationships and drive sales growth." },
-    { icon: "bi-database-fill-gear", title: "Database Design", description: "Scalable, secure database architecture optimized for performance." },
-    { icon: "bi-bar-chart-line-fill", title: "Power BI Dashboards", description: "Insightful dashboards and reports for data-driven decision making." },
-    { icon: "bi-lightbulb-fill", title: "Digital Transformation Consulting", description: "Strategic guidance to modernize operations and technology stacks." },
+    { icon: "bi-cpu-fill", title: "AI Solutions", description: "Build practical AI-powered solutions around real business requirements." },
+    { icon: "bi-gear-wide-connected", title: "Business Automation", description: "Automate repetitive workflows and reduce manual effort." },
+    { icon: "bi-code-slash", title: "Custom Software", description: "Build scalable software tailored to specific business processes." },
+    { icon: "bi-plug-fill", title: "AI Integration", description: "Integrate AI capabilities into existing applications and workflows." },
+    { icon: "bi-cloud-fill", title: "Cloud Solutions", description: "Build secure, scalable cloud applications using modern cloud technologies." },
 ];
 
 function ServiceCard({ service, index }) {
@@ -42,7 +35,7 @@ export default function Services() {
             <Container>
                 <div className="section-heading text-center">
                     <span className="eyebrow">Services</span>
-                    <h2 className="title">Our Services</h2>
+                    <h2 className="title">Technology & AI Services</h2>
                     <p className="subtitle mx-auto">
                         End-to-end technology services to design, build and scale your digital products.
                     </p>

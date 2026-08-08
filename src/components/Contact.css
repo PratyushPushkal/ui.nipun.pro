@@ -8,6 +8,12 @@
     max-width: 480px;
 }
 
+.contact-privacy-note {
+    margin: 0.85rem 0 0;
+    font-size: 0.82rem;
+    color: var(--gray);
+}
+
 .contact-details {
     list-style: none;
     padding: 0;

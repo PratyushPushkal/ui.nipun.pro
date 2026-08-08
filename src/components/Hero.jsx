@@ -30,21 +30,22 @@ export default function Hero() {
                 <Row className="align-items-center g-5">
                     <Col lg="6" ref={ref} className={`reveal ${isVisible ? "is-visible" : ""}`}>
                         <h1 className="hero__title">
-                            AI Solutions That <span className="text-gradient">Drive Business Growth</span>
+                            AI-Powered Solutions That <span className="text-gradient">Help Businesses Grow</span>
                         </h1>
                         <p className="hero__paragraph">
-                            We build AI-powered software, cloud applications, business automation, and
-                            enterprise solutions that help organizations improve productivity and customer
-                            experience.
+                            Nipun builds intelligent business solutions that help organizations automate
+                            processes, understand customers, improve their reputation, and create better
+                            customer experiences.
                         </p>
                         <div className="hero__actions">
                             <Button color="primary" size="lg" className="btn-primary-glow" href="#products">
                                 Explore Products
                             </Button>
-                            <Button outline color="primary" size="lg" className="btn-outline-soft" href="#services">
-                                Our Services
+                            <Button outline color="primary" size="lg" className="btn-outline-soft" href="#contact">
+                                Talk to Us
                             </Button>
                         </div>
+                        <p className="hero__trustline">AI &bull; Automation &bull; Customer Experience &bull; Business Intelligence</p>
                         <ul className="hero__badges" role="list">
                             {BADGES.map((badge) => (
                                 <li key={badge.label} className="hero__badge">

@@ -5,14 +5,17 @@ export default function CTA() {
     return (
         <section className="cta-section">
             <Container className="text-center">
-                <h2 className="cta-title">Ready to Transform Your Business?</h2>
-                <p className="cta-paragraph">Let&apos;s build intelligent software together.</p>
+                <h2 className="cta-title">Have a Business Challenge? Let&apos;s Build the Solution.</h2>
+                <p className="cta-paragraph">
+                    Tell us what you&apos;re trying to improve, automate, or build. We&apos;ll help you explore
+                    the right technology approach.
+                </p>
                 <div className="cta-actions">
                     <Button color="light" size="lg" className="btn-cta-light" href="#contact">
-                        Contact Us
+                        Start a Conversation
                     </Button>
-                    <Button outline size="lg" className="btn-cta-outline" href="#contact">
-                        Book a Demo
+                    <Button outline size="lg" className="btn-cta-outline" href="#products">
+                        Explore Products
                     </Button>
                 </div>
             </Container>

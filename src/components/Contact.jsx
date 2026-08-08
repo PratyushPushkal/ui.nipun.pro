@@ -92,12 +92,12 @@ export default function Contact() {
         <section id="contact" className="contact-section">
             <Container>
                 <Row className="g-5">
-                    <Col lg="5">
-                        <h2 className="title mb-3">About Nipun</h2>
+                    <Col lg="5" id="about">
+                        <h2 className="title mb-3">Technology With a Business Purpose</h2>
                         <p className="contact-about">
-                            Nipun is an AI-focused software company delivering intelligent business
-                            applications, cloud solutions, automation platforms, and enterprise software
-                            built on Microsoft Azure.
+                            Nipun is an AI-focused technology company building intelligent solutions for
+                            modern businesses. Our goal is simple: use technology, AI, and automation to
+                            help businesses work smarter, engage customers better, and grow efficiently.
                         </p>
                         <ul className="contact-details" role="list">
                             <li>
@@ -232,9 +232,12 @@ export default function Contact() {
                                         <Spinner size="sm" className="me-2" /> Sending...
                                     </>
                                 ) : (
-                                    "Submit"
+                                    "Send Message"
                                 )}
                             </Button>
+                            <p className="contact-privacy-note">
+                                We respect your privacy. Your details are only used to respond to your enquiry.
+                            </p>
                         </Form>
                     </Col>
                 </Row>
