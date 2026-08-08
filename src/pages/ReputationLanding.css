@@ -4,53 +4,6 @@
     background: linear-gradient(180deg, #eef4ff 0%, var(--background, #ffffff) 65%);
 }
 
-.rep-page-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
-}
-
-.rep-page-header__inner {
-    display: flex;
-    align-items: center;
-    padding: 0.85rem 1.5rem;
-}
-
-.rep-page-header__brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: inherit;
-}
-
-.rep-page-header__logo {
-    display: block;
-    border-radius: 10px;
-}
-
-.rep-page-header__text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-}
-
-.rep-page-header__name {
-    font-weight: 800;
-    font-size: 1.25rem;
-    color: #0f172a;
-}
-
-.rep-page-header__tagline {
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: #64748b;
-    letter-spacing: 0.02em;
-}
-
 .rep-bg-shapes {
     position: absolute;
     inset: 0;

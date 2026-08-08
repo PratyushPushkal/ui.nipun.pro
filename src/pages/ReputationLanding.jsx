@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
-import logo from "../assets/nipun.png";
+import Navbar from "../components/Navbar";
 import dashboardShot1 from "../assets/1.JPG";
 import dashboardShot2 from "../assets/2.JPG";
 import "./ReputationLanding.css";
@@ -76,17 +76,7 @@ export default function ReputationLanding() {
 
     return (
         <div className="rep-landing-page">
-            <header className="rep-page-header">
-                <Container className="rep-page-header__inner">
-                    <a href="/" className="rep-page-header__brand">
-                        <img src={logo} alt="Nipun logo" className="rep-page-header__logo" width={40} height={40} loading="eager" />
-                        <span className="rep-page-header__text">
-                            <span className="rep-page-header__name">Nipun</span>
-                            <span className="rep-page-header__tagline">AI Based Solutions</span>
-                        </span>
-                    </a>
-                </Container>
-            </header>
+            <Navbar links={[]} alwaysSolid />
 
             <div className="rep-bg-shapes" aria-hidden="true">
                 <span className="rep-shape rep-shape-1" />
@@ -112,9 +102,9 @@ export default function ReputationLanding() {
                                 into a single command center so every customer conversation strengthens your brand.
                             </p>
 
-                            <div className="rep-cta-row">
+                            {/* <div className="rep-cta-row">
                                 <a href="#rep-features" className="rep-cta-secondary">Learn More</a>
-                            </div>
+                            </div> */}
 
                             <ul className="rep-feature-badges" role="list">
                                 <li><i className="bi bi-stars" aria-hidden="true" /> Increase Reviews</li>
