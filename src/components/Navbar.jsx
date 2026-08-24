@@ -21,6 +21,15 @@ export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid
     }, []);
 
     const handleNavClick = () => setIsOpen(false);
+
+    const handleAnchorClick = (event, href) => {
+        if (!href || !href.startsWith("#")) return;
+        event.preventDefault();
+        handleNavClick();
+        const id = href.slice(1);
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
     const hasLinks = links.length > 0;
 
     return (
@@ -31,7 +40,7 @@ export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid
                         <img src={logo} alt="Nipun logo" className="brand__logo" width={40} height={40} loading="eager" />
                         <span className="brand__text">
                             <span className="brand__name">Nipun</span>
-                            <span className="brand__tagline">AI Based Solutions</span>
+                            <span className="brand__tagline">AI Powered Business Solutions</span>
                         </span>
                     </a>
 
@@ -42,13 +51,28 @@ export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid
                                 <Nav className="site-header__nav site-header__nav--desktop">
                                     {links.map((link) => (
                                         <NavItem key={link.href}>
-                                            <NavLink href={link.href} onClick={handleNavClick}>
+                                            <NavLink href={link.href} onClick={(e) => (link.href && link.href.startsWith("#") ? handleAnchorClick(e, link.href) : handleNavClick())}>
                                                 {link.label}
                                             </NavLink>
                                         </NavItem>
                                     ))}
                                 </Nav>
-                                <Button color="primary" className="btn-cta-nav" href={ctaHref} onClick={handleNavClick}>
+                                <Button
+                                    color="primary"
+                                    className="btn-cta-nav"
+                                    href={ctaHref}
+                                    onClick={(e) => {
+                                        if (ctaHref && ctaHref.startsWith("#")) {
+                                            e.preventDefault();
+                                            const id = ctaHref.slice(1);
+                                            const el = document.getElementById(id);
+                                            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            setIsOpen(false);
+                                        } else {
+                                            handleNavClick();
+                                        }
+                                    }}
+                                >
                                     {ctaLabel}
                                 </Button>
                             </div>
@@ -67,13 +91,28 @@ export default function Navbar({ links = NAV_LINKS, brandHref = "/", alwaysSolid
                                 <Nav className="site-header__nav mx-auto" navbar>
                                     {links.map((link) => (
                                         <NavItem key={link.href}>
-                                            <NavLink href={link.href} onClick={handleNavClick}>
+                                            <NavLink href={link.href} onClick={(e) => (link.href && link.href.startsWith("#") ? handleAnchorClick(e, link.href) : handleNavClick())}>
                                                 {link.label}
                                             </NavLink>
                                         </NavItem>
                                     ))}
                                 </Nav>
-                                <Button color="primary" className="btn-cta-nav" href={ctaHref} onClick={handleNavClick}>
+                                <Button
+                                    color="primary"
+                                    className="btn-cta-nav"
+                                    href={ctaHref}
+                                    onClick={(e) => {
+                                        if (ctaHref && ctaHref.startsWith("#")) {
+                                            e.preventDefault();
+                                            const id = ctaHref.slice(1);
+                                            const el = document.getElementById(id);
+                                            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            setIsOpen(false);
+                                        } else {
+                                            handleNavClick();
+                                        }
+                                    }}
+                                >
                                     {ctaLabel}
                                 </Button>
                             </Collapse>

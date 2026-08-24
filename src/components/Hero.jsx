@@ -38,10 +38,31 @@ export default function Hero() {
                             customer experiences.
                         </p>
                         <div className="hero__actions">
-                            <Button color="primary" size="lg" className="btn-primary-glow" href="#products">
+                            <Button
+                                color="primary"
+                                size="lg"
+                                className="btn-primary-glow"
+                                href="#products"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.getElementById("products");
+                                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
+                            >
                                 Explore Products
                             </Button>
-                            <Button outline color="primary" size="lg" className="btn-outline-soft" href="#contact">
+                            <Button
+                                outline
+                                color="primary"
+                                size="lg"
+                                className="btn-outline-soft"
+                                href="#contact"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const el = document.getElementById("contact");
+                                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
+                            >
                                 Talk to Us
                             </Button>
                         </div>

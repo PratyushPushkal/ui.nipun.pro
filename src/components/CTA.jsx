@@ -11,10 +11,30 @@ export default function CTA() {
                     the right technology approach.
                 </p>
                 <div className="cta-actions">
-                    <Button color="light" size="lg" className="btn-cta-light" href="#contact">
+                    <Button
+                        color="light"
+                        size="lg"
+                        className="btn-cta-light"
+                        href="#contact"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const el = document.getElementById("contact");
+                            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                    >
                         Start a Conversation
                     </Button>
-                    <Button outline size="lg" className="btn-cta-outline" href="#products">
+                    <Button
+                        outline
+                        size="lg"
+                        className="btn-cta-outline"
+                        href="#products"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const el = document.getElementById("products");
+                            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                    >
                         Explore Products
                     </Button>
                 </div>
