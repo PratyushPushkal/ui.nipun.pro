@@ -1,21 +1,21 @@
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import logo from "../assets/nipun.png";
+import logo from "../assets/nipun_2.png";
 import "./Footer.css";
 
-const PRODUCT_LINKS = [{ label: "Reputation Management", href: "/reputation" }];
+const PRODUCT_LINKS = [{ label: "Nipun Growth", href: "/growth" }];
 
 const SERVICE_LINKS = [
-    { label: "AI Solutions", href: "/#services" },
-    { label: "Business Automation", href: "/#services" },
-    { label: "Custom Software", href: "/#services" },
-    { label: "AI Integration", href: "/#services" },
-    { label: "Cloud Solutions", href: "/#services" },
+    { label: "AI Solutions" },
+    { label: "Business Automation" },
+    { label: "Custom Software" },
+    { label: "AI Integration" },
+    { label: "Cloud Solutions" },
 ];
 
 const COMPANY_LINKS = [
-    { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
+    { label: "About" },
+    { label: "Contact" },
 ];
 
 const LEGAL_LINKS = [
@@ -28,6 +28,7 @@ const SOCIALS = [
 ];
 
 function FooterLink({ link }) {
+    if (!link.href) return <span>{link.label}</span>;
     const isInternalRoute = link.href.startsWith("/") && !link.href.includes("#");
     return isInternalRoute ? <Link to={link.href}>{link.label}</Link> : <a href={link.href}>{link.label}</a>;
 }
@@ -42,7 +43,7 @@ export default function Footer() {
                             <img src={logo} alt="Nipun logo" width={36} height={36} loading="lazy" />
                             <span>Nipun</span>
                         </a>
-                        <p className="footer-desc">AI-Powered Business Solutions</p>
+                        <p className="footer-desc">One platform for business growth.</p>
                         <div className="footer-socials">
                             {SOCIALS.map((social) => (
                                 <a

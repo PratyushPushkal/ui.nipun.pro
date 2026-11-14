@@ -10,7 +10,7 @@ const WELCOME_MESSAGE = {
 
 const SUGGESTIONS = [
     "What products do you offer?",
-    "Tell me about Reputation Management",
+    "Tell me about Nipun Growth",
     "How can I request a demo?",
 ];
 

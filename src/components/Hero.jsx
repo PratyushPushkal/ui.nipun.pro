@@ -1,6 +1,5 @@
 import { Container, Row, Col, Button } from "reactstrap";
-import logo from "../assets/nipun.png";
-import useScrollReveal from "../hooks/useScrollReveal";
+import logo from "../assets/nipun_2.png";
 import "./Hero.css";
 
 const BADGES = [
@@ -18,8 +17,6 @@ const FLOATING_ICONS = [
 ];
 
 export default function Hero() {
-    const { ref, isVisible } = useScrollReveal();
-
     return (
         <section id="top" className="hero">
             <div className="hero__glow hero__glow--one" aria-hidden="true" />
@@ -28,14 +25,13 @@ export default function Hero() {
 
             <Container>
                 <Row className="align-items-center g-5">
-                    <Col lg="6" ref={ref} className={`reveal ${isVisible ? "is-visible" : ""}`}>
+                    <Col lg="6">
                         <h1 className="hero__title">
-                            AI-Powered Solutions That <span className="text-gradient">Help Businesses Grow</span>
+                            Nipun Growth: <span className="text-gradient">One Platform to Grow</span>
                         </h1>
                         <p className="hero__paragraph">
-                            Nipun builds intelligent business solutions that help organizations automate
-                            processes, understand customers, improve their reputation, and create better
-                            customer experiences.
+                            Nipun Growth brings Google Business Profile automation, digital marketing, and
+                            reputation and feedback tools together to help businesses grow.
                         </p>
                         <div className="hero__actions">
                             <Button
@@ -66,7 +62,7 @@ export default function Hero() {
                                 Talk to Us
                             </Button>
                         </div>
-                        <p className="hero__trustline">AI &bull; Automation &bull; Customer Experience &bull; Business Intelligence</p>
+                        <p className="hero__trustline">Google Business Profile &bull; Digital Marketing &bull; Reputation & Feedback</p>
                         <ul className="hero__badges" role="list">
                             {BADGES.map((badge) => (
                                 <li key={badge.label} className="hero__badge">

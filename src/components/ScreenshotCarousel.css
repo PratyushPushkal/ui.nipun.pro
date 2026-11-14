@@ -1,0 +1,119 @@
+.growth-image-carousel {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #edf4fd;
+}
+
+.growth-image-carousel__image-wrap {
+    position: relative;
+    display: grid;
+    min-height: 0;
+    place-items: center;
+    overflow: hidden;
+}
+
+.growth-image-carousel__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1340 / 618;
+    object-fit: contain;
+}
+
+.growth-image-carousel__arrow {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 1px solid rgba(209, 221, 236, 0.9);
+    border-radius: 50%;
+    color: #233b5b;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 5px 16px rgba(15, 42, 84, 0.15);
+    cursor: pointer;
+    transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.growth-image-carousel__arrow:hover {
+    transform: translateY(-50%) scale(1.05);
+    color: #fff;
+    background: #1769e0;
+}
+
+.growth-image-carousel__arrow--previous {
+    left: 14px;
+}
+
+.growth-image-carousel__arrow--next {
+    right: 14px;
+}
+
+.growth-image-carousel__caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    color: #607087;
+    background: #fff;
+    font-size: 0.8rem;
+}
+
+.growth-image-carousel__caption > span:first-child {
+    display: flex;
+    min-width: 0;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+}
+
+.growth-image-carousel__caption strong {
+    color: #14233b;
+    font-weight: 700;
+}
+
+.growth-image-carousel__count {
+    flex: 0 0 auto;
+    color: #1769e0;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 575.98px) {
+    .growth-image-carousel {
+        border-radius: 14px;
+    }
+
+    .growth-image-carousel__arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .growth-image-carousel__arrow--previous {
+        left: 8px;
+    }
+
+    .growth-image-carousel__arrow--next {
+        right: 8px;
+    }
+
+    .growth-image-carousel__caption {
+        align-items: flex-start;
+        padding: 0.7rem;
+        font-size: 0.72rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .growth-image-carousel__arrow {
+        transition: none;
+    }
+}

@@ -1,20 +1,25 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import UnderDevelopment from "./pages/UnderDevelopment";
-import ReputationLanding from "./pages/ReputationLanding";
-import Terms from "./pages/Terms";
-import Privacy from "./pages/Privacy";
+import { lazy, Suspense } from "react";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
+const Home = lazy(() => import("./pages/Home"));
+const GrowthLanding = lazy(() => import("./pages/GrowthLanding"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/reputation" element={<ReputationLanding />} />
-        <Route path="/Terms" element={<Terms />} />
-        <Route path="/Privacy" element={<Privacy />} />
-        <Route path="*" element={<UnderDevelopment />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/growth" element={<GrowthLanding />} />
+            <Route path="/reputation" element={<Navigate to="/growth" replace />} />
+            <Route path="/Terms" element={<Terms />} />
+            <Route path="/Privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
